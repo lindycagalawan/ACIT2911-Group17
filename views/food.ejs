@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food & Restaurants</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation -->
+<header class="navbar">
+    <h1 class="logo"><a href="/" class="n">ExploreBC</a></h1>
+    <nav class="nav-links">
+        <ul class="lp">
+            <li><a href="/" class="n">Home</a></li>
+            <li><a href="/destinations" class="n">Destinations</a></li>
+            <li><a href="/activities" class="n">Activities</a></li>
+            <li><a href="/food" class="n">Food & Restaurants</a></li>
+            <li><a href="/contact" class="n">Contact</a></li>
+            
+            <% if (user) { %>
+                <li><a href="/auth/logout" class="n">Logout (<%= user.uname %>)</a></li>
+            <% } else { %>
+                <li><a href="/auth/login" class="n">Login</a></li>
+            <% } %>
+        </ul>    
+    </nav>
+</header>
+
+    <!-- Main Content -->
+    <main class="food-page">
+        <section class="food-hero">
+            <h1>Food & Restaurants in British Columbia</h1>
+            <p>Discover popular local foods, delicious desserts, and famous food markets in BC.</p>
+        </section>
+
+        <section class="food-grid">
+
+            <div class="food-card">
+                <img src="images/salmon.jpeg" alt="Pacific Salmon" class="food-img">
+                <div class="food-card-text">
+                    <h3>Pacific Salmon</h3>
+                    <p>Pacific salmon is one of the most popular foods in British Columbia. It is fresh, flavorful, and often grilled, baked, or smoked.</p>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <img src="images/poutine.jpeg" alt="Poutine" class="food-img">
+                <div class="food-card-text">
+                    <h3>Poutine</h3>
+                    <p>Poutine is a famous Canadian dish made with fries, gravy, and cheese curds. It is warm, tasty, and loved by many people.</p>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <img src="images/nanaimo.jpeg" alt="Nanaimo Bar" class="food-img">
+                <div class="food-card-text">
+                    <h3>Nanaimo Bar</h3>
+                    <p>Nanaimo bar is a sweet dessert with a crumb base, creamy filling, and chocolate topping. It is one of Canada’s best-known treats.</p>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <img src="images/granville.jpeg" alt="Granville Island Food Market" class="food-img">
+                <div class="food-card-text">
+                    <h3>Granville Island Food Market</h3>
+                    <p>Granville Island in Vancouver is a popular place to enjoy fresh produce, seafood, baked goods, snacks, and local food products.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="extra-food-info">
+            <h2>What You Can Explore</h2>
+            <div class="explore-boxes">
+                <div class="explore-box">
+                    <h3>Local Foods</h3>
+                    <p>Try dishes made with fresh ingredients from British Columbia.</p>
+                </div>
+
+                <div class="explore-box">
+                    <h3>Street Food</h3>
+                    <p>Enjoy quick snacks and meals from food trucks and small vendors.</p>
+                </div>
+
+                <div class="explore-box">
+                    <h3>Restaurants</h3>
+                    <p>Visit cozy restaurants, seafood spots, and modern dining places.</p>
+                </div>
+
+                <div class="explore-box">
+                    <h3>Food Markets</h3>
+                    <p>Walk through food markets to discover fresh, local, and handmade products.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <a href="#" class="totem">
+            <img src="images/totem_pole.png" alt="totem pole" class="totem_pole">
+        </a>
+        <p>&copy; 2026 ExploreBC. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

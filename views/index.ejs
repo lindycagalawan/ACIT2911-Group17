@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExploreBC | Home</title>
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <!-- Navigation -->
+<header class="navbar">
+    <h1 class="logo"><a href="/" class="n">ExploreBC</a></h1>
+    <nav class="nav-links">
+        <ul class="lp">
+            <li><a href="/" class="n">Home</a></li>
+            <li><a href="/destinations" class="n">Destinations</a></li>
+            <li><a href="/activities" class="n">Activities</a></li>
+            <li><a href="/food" class="n">Food & Restaurants</a></li>
+            <li><a href="/contact" class="n">Contact</a></li>
+            
+            <% if (user) { %>
+                <li><a href="/auth/logout" class="n">Logout (<%= user.uname %>)</a></li>
+            <% } else { %>
+                <li><a href="/auth/login" class="n">Login</a></li>
+            <% } %>
+        </ul>    
+    </nav>
+</header>    <!-- Main Content -->
+    <div class="hero">
+        <div class="overlay"></div>
+        <img src="images/BC.jpg" alt="ExploreBC picture">
+    <div class="content">
+        <h1 class="title">Welcome to ExploreBC</h1>
+        <p>Discover the beauty of British Columbia with us.</p>
+    </div>
+    </div>
+    <div class="contact_us">
+            <a href="contact.html" target="_blank" class="btn1">
+                Contact Us
+            </a>
+    </div>
+    <main class="card">
+        <div class="container">
+            <% posts.forEach(post => { %>
+                <section class="<%= post.location %>">
+                    <img src="<%= post.image %>" alt="<%= post.title %>" class="img">
+                    <div class="card-text">
+                        <h3><%= post.title %></h3>
+                        <p><%= post.description %></p>
+                        <a href="/posts/show/<%= post.id %>" class="btn">View Story</a>
+                    
+                        <% if (user && user.id === post.creator.id) { %>
+                            <div class="admin-tools">
+                                <a href="/posts/edit/<%= post.id %>">Edit</a>
+                                <a href="/posts/deleteconfirm/<%= post.id %>">Delete</a>
+                            </div>
+                        <% } %>
+                    </div>
+                </section>
+            <% }) %>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <a href="#" class="totem">
+        <img src="images/totem_pole.png" alt="totem pole" class="totem_pole"></a>
+        <p>&copy; 2026 ExploreBC. All rights reserved.</p>
+    </footer>
+
+    <!-- focus effect -->
+</body>
+</html>

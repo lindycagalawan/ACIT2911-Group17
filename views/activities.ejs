@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExploreBC | Activities</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Navigation -->
+<header class="navbar">
+    <h1 class="logo"><a href="/" class="n">ExploreBC</a></h1>
+    <nav class="nav-links">
+        <ul class="lp">
+            <li><a href="/" class="n">Home</a></li>
+            <li><a href="/destinations" class="n">Destinations</a></li>
+            <li><a href="/activities" class="n">Activities</a></li>
+            <li><a href="/food" class="n">Food & Restaurants</a></li>
+            <li><a href="/contact" class="n">Contact</a></li>
+            
+            <% if (user) { %>
+                <li><a href="/auth/logout" class="n">Logout (<%= user.uname %>)</a></li>
+            <% } else { %>
+                <li><a href="/auth/login" class="n">Login</a></li>
+            <% } %>
+        </ul>    
+    </nav>
+</header>
+    <main> <!-- Main Content -->
+        <section class="intro">
+            <img src="/images/activities-intro.jpg" alt="Beautiful British Columbia landscape">
+            <div class="intro-text">
+                <h2>Things To Do in British Columbia</h2>
+                <p>Explore some of the best destinations in BC and discover popular activities in each location.</p>
+            </div>
+        </section>
+
+
+        <section class="activities">
+            <section class="card">
+                <h3>Vancouver</h3>
+                <img src="/images/seawall.jpg" alt="Vancouver Seawall">
+                <div class="card-content">
+                    <ul>
+                        <li>Bike or walk around Stanley Park Seawall.</li>
+                        <li>Visit Granville Island Public Market.</li>
+                        <li>Relax at English Bay or Kitsilano Beach.</li>
+                    </ul>
+                    <a href="food.html"> Explore Restaurants</a> <!--add vancouver anchor here-->
+
+                </div>
+            </section>
+
+            <section class="card">
+                <h3>Victoria</h3>
+                <img src="/images/whale.jpg" alt="Humpback whale watching Victoria">
+                <div class="card-content">
+                    <ul>
+                        <li>Join a Discover the Past Chinatown walking tour</li>
+                        <li>Go whale watching with Eagle Wing Tours</li>
+                        <li>Kayak along the Victoria coastline</li>
+                    </ul>
+                    <a href="food.html"> Explore Restaurants</a> <!--add location anchor here-->
+
+                </div>
+            </section>
+
+            <section class="card">
+                <h3>Whistler</h3>
+                <img src="/images/floatplane.jpg" alt="Floatplane flying over glaciers in Whistler">
+                <div class="card-content">
+                    <ul>
+                        <li>Ride the Peak 2 Peak Gondola</li>
+                        <li>Go bear viewing with a local guide</li>
+                        <li>Take a floatplane over glaciers</li>
+                    </ul>
+                    <a href="food.html"> Explore Restaurants</a> <!--add location anchor here-->
+
+                </div>
+            </section>
+
+            <section class="card">
+                <h3>Tofino</h3>
+                <img src="/images/surfing.jpg" alt="Tofino beach and surfing">
+                <div class="card-content">
+                    <ul>
+                        <li>Surf at Cox Bay or Chesterman Beach</li>
+                        <li>Walk the Rainforest Trail in Pacific Rim Park</li>
+                        <li>Go storm watching along the wild coastline</li>
+                    </ul>
+                    <a href="food.html"> Explore Restaurants</a> <!--add location anchor here-->
+
+                </div>
+
+            </section>
+            <section class="card">
+                <h3>Kelowna</h3>
+                <img src="/images/paddleboard.jpg" alt="Okanagan Lake Kelowna activities">
+                <div class="card-content">
+                    <ul>
+                        <li>Swim or paddleboard on Okanagan Lake</li>
+                        <li>Bike the Myra Canyon trestle bridges</li>
+                        <li>Visit local wineries in the Okanagan Valley</li>
+                    </ul>
+                    <a href="food.html"> Explore Restaurants</a> <!--add location anchor here-->
+
+                </div>
+            </section>
+
+            <section class="card">
+
+                <h3>Revelstoke</h3>
+                <img src="/images/revelstoke-hiking.jpg" alt="Revelstoke mountain adventure">
+                <div class="card-content">
+                    <ul>
+                        <li>Hike in Mount Revelstoke National Park</li>
+                        <li>Ride the Pipe Mountain Coaster</li>
+                        <li>Drive the Meadows in the Sky Parkway</li>
+                    </ul>
+                    <a href="food.html"> Explore Restaurants</a>
+                </div>
+
+            </section>
+
+
+        </section>
+
+        <section class="travel-tips">
+            <h2>Travel Tips</h2>
+            <div class="tips-grid">
+                <div class="tip-box">
+                    <h3>Pack for Changing Weather</h3>
+                    <p>Bring layers and a waterproof jacket, especially for coastal and mountain destinations.</p>
+                </div>
+
+                <div class="tip-box">
+                    <h3>Plan Transportation</h3>
+                    <p>Many scenic spots are outside major cities, so renting a car can make your trip much easier.</p>
+                </div>
+
+                <div class="tip-box">
+                    <h3>Book Early in Summer</h3>
+                    <p>Popular places like Whistler, Tofino, and Victoria can get busy, so reserve early when possible.
+                    </p>
+                </div>
+
+                <div class="tip-box">
+                    <h3>Respect Nature</h3>
+                    <p>Follow park rules, stay on marked trails, and keep a safe distance from wildlife.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer class="footer">
+        <a href="#" class="totem">
+        <img src="/images/totem_pole.png" alt="totem pole" class="totem_pole"></a>
+        <p>&copy; 2026 ExploreBC. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

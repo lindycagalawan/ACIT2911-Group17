@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.classless.min.css" />
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Post</title>
+  </head>
+  <body>
+    <%- include('partials/header', { user }) %>
+    <main>
+
+<% if (typeof isEdit !== 'undefined' && isEdit) { %>
+
+  <!-- EDIT MODE -->
+  <form method="POST" action="/posts/edit/<%= post.id %>">
+
+    <label>Title</label>
+    <input name="title" value="<%= post.title %>" />
+
+    <label>Description</label>
+    <textarea name="description"><%= post.description %></textarea>
+
+    <button type="submit">Save Changes</button>
+
+  </form>
+
+<% } else { %>
+
+      <div class="individualPost">
+        <h2><a href="<%= post.link %>"><%= post.title %></a></h2>
+        <p><%= post.description %></p>
+
+        <!-- Votes -->
+
+      <%
+  let netVotes = 0;
+  let userVoteValue = 0;
+
+  if (post.votes) {
+    post.votes.forEach(v => {
+      const val = Number(v.value) || 0;
+      netVotes += val;
+
+      if (user && Number(v.user_id) === Number(user.id)) {
+        userVoteValue = val;
+      }
+    });
+  }
+%>
+
+<div class="post-meta">
+
+  <% if (user) { %>
+    <form action="/posts/vote/<%= post.id %>" method="POST" class="inline-form">
+      <input type="hidden" name="setvoteto" value="1">
+      <input type="submit" value="⬆"
+        class="vote-arrow vote-up <%= userVoteValue === 1 ? 'up-active' : '' %>">
+    </form>
+  <% } %>
+
+  <span class="vote-number"><%= netVotes %></span>
+
+  <% if (user) { %>
+    <form action="/posts/vote/<%= post.id %>" method="POST" class="inline-form">
+      <input type="hidden" name="setvoteto" value="-1">
+      <input type="submit" value="⬇"
+        class="vote-arrow vote-down <%= userVoteValue === -1 ? 'down-active' : '' %>">
+    </form>
+  <% } %>
+
+  <small style="margin-left: 5px; font-size: 18px;">
+    Posted by <strong><%= post.creator.uname %></strong>
+    on <%= new Date(post.timestamp).toLocaleString() %>
+    in <a href="/subs/show/<%= post.subgroup %>">/s/<%= post.subgroup %></a>
+  </small>
+
+</div>
+        <!-- Edit/Delete (only for post creator) -->
+      <% if (user && post.creator && Number(user.id) === Number(post.creator.id)) { %>
+        <a href="/posts/edit/<%= post.id %>">Edit</a>
+        &nbsp;
+        <a href="/posts/deleteconfirm/<%= post.id %>">Delete</a>
+      <% } %>
+
+      </div>
+
+      <hr />
+
+      <!-- Comments -->
+      <h3>Comments (<%= post.comments.length %>)</h3>
+<% post.comments.forEach(function(comment) { %>
+  <div class="comment">
+    <p><%= comment.description %></p>
+    <small>
+      by <strong><%= comment.creator ? comment.creator.uname : 'Unknown' %></strong>
+      on <%= new Date(comment.timestamp).toLocaleString() %>
+    </small>
+    <% if (user) { %>
+  <a href="/comments/edit/<%= comment.id %>">Edit</a>
+  &nbsp;
+  <a href="/comments/deleteconfirm/<%= comment.id %>">Delete</a>
+<% } %>
+    
+  </div>
+<% }) %>
+
+      <!-- Comment form -->
+      <% if (user) { %>
+        <h3>Leave a Comment</h3>
+        <form action="/posts/comment-create/<%= post.id %>" method="POST">
+          <textarea name="description" placeholder="Write a comment..." required></textarea>
+          <button type="submit">Comment</button>
+        </form>
+      <% } else { %>
+        <p><a href="/auth/login">Log in</a> to leave a comment.</p>
+      <% } %>
+
+<% } %>
+
+    </main>
+  </body>
+</html>

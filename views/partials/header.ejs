@@ -1,0 +1,17 @@
+<header class="navbar">
+    <h1 class="logo"><a href="/" class="n">ExploreBC</a></h1>
+    <nav class="nav-links">
+        <ul class="lp">
+            <li><a href="/" class="n">Home</a></li>
+            <li><a href="/destinations" class="n">Destinations</a></li>
+            <li><a href="/activities" class="n">Activities</a></li>
+            
+            <% if (user) { %>
+                <li><a href="/posts/create" class="n">Create Blog Post</a></li>
+                <li><a href="/auth/logout" class="n">Logout (<%= user.uname %>)</a></li>
+            <% } else { %>
+                <li><a href="/auth/login" class="n">Login</a></li>
+            <% } %>
+        </ul>    
+    </nav>
+</header>
