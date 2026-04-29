@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.classless.min.css" />
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Edit Comment</title>
+  </head>
+  <body>
+    <%- include('../partials/header', { user }) %>
+    <main>
+      <h2>Edit Comment</h2>
+      <form action="/comments/edit/<%= comment.id %>" method="POST">
+        <textarea name="description" required><%= comment.description %></textarea>
+        <button type="submit">Save</button>
+        <a href="/posts/show/<%= comment.post_id %>">Cancel</a>
+      </form>
+    </main>
+  </body>
+</html>
