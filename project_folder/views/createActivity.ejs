@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Adventure | ExploreBC</title>
+    <!-- Referencing your existing styles verbatim -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/styles-activities_3.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body id="destinations-page">
+    <!-- Standard Navbar with User Logic[cite: 8] -->
+    <header class="navbar">
+        <h1 class="logo"><a href="/" class="n">ExploreBC</a></h1>
+        <nav class="nav-links">
+            <ul class="lp">
+                <li><a href="/" class="n">Home</a></li>
+                <li><a href="/destinations" class="n">Destinations</a></li>
+                <li><a href="/activities" class="n">Activities</a></li>
+                <li><a href="/food" class="n">Food & Restaurants</a></li>
+                <li><a href="/contact" class="n">Contact</a></li>
+                <% if (user) { %>
+                    <li><a href="/auth/logout" class="n">Logout</a></li>
+                <% } else { %>
+                    <li><a href="/auth/login" class="n">Login</a></li>
+                <% } %>
+            </ul>    
+        </nav>
+    </header>
+
+    <main class="contact-page">
+        <div class="contact-container">
+            <h1 style="font-family: 'Dancing Script', cursive; font-size: 3rem;">Log Your Activity</h1>
+            <p style="text-align: center; margin-bottom: 30px; color: #666;">Share your trail or water experience with the community.</p>
+
+            <!-- Form using your contact-form styles -->
+            <form action="/activities/create" method="POST" class="contact-form">
+                
+                <label for="title">Activity Title</label>
+                <input type="text" id="title" name="title" placeholder="e.g., Morning Paddle at Deep Cove" required>
+
+                <label for="type">Activity Type</label>
+                <select name="type" id="type" style="width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem;">
+                    <option value="Hiking">Hiking</option>
+                    <option value="Biking">Biking</option>
+                    <option value="Boating">Boating</option>
+                    <option value="Swimming">Swimming</option>
+                    <option value="Other">Other Adventure</option>
+                </select>
+
+                <div style="display: flex; gap: 20px;">
+                    <div style="flex: 1;">
+                        <label for="difficulty">Difficulty (1-5)</label>
+                        <input type="number" id="difficulty" name="difficulty" min="1" max="5" placeholder="3" required>
+                    </div>
+                    <div style="flex: 1;">
+                        <label for="rating">Experience (1-5 Stars)</label>
+                        <input type="number" id="rating" name="rating" min="1" max="5" placeholder="5" required>
+                    </div>
+                </div>
+
+                <label for="image">Image URL</label>
+                <input type="text" id="image" name="image" placeholder="https://example.com/photo.jpg">
+
+                <label for="description">Tell us about it</label>
+                <textarea id="description" name="description" rows="5" placeholder="Describe the conditions, the view, and any tips for others..." required></textarea>
+
+                <button type="submit" style="background: #ef9656; font-weight: bold; font-size: 1.1rem; margin-top: 10px;">Post Activity</button>
+                <a href="/activities" style="text-align: center; display: block; margin-top: 15px; color: #2d6a4f; text-decoration: none;">Cancel and Go Back</a>
+            </form>
+        </div>
+    </main>
+
+    <!-- Themed Footer[cite: 7, 8] -->
+    <footer class="footer">
+        <a href="#" class="totem">
+            <img src="/images/totem_pole.png" alt="totem pole" class="totem_pole">
+        </a>
+        <p>&copy; 2026 ExploreBC. All rights reserved.</p>
+    </footer>
+</body>
+</html>
