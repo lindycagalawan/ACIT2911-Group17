@@ -37,7 +37,12 @@
                 <p>Review, discover, and log popular activities in each location.</p>
             </div>
         </section>
-
+        <!-- Inside the <main> tag of activities.ejs -->
+    <div style="text-align: center; margin: 40px 0;">
+        <a href="/activities/create" style="background-color: #f28c38; color: white; padding: 15px 30px; text-decoration: none; border-radius: 999px; font-weight: bold; box-shadow: 0 4px 15px rgba(242, 140, 56, 0.3);">
+            + Share Your Experience
+        </a>
+    </div>
         <div class="activities">
             <% if (typeof activities !== 'undefined' && activities.length > 0) { %>
                 <% activities.forEach(act => { %>

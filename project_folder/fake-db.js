@@ -77,6 +77,7 @@ function addPost(title, description, creator, image) {
 const getActivities = () => activities;
 
 const addActivity = (activity) => {
+  activity.id = activities.length + 1; 
   activities.push(activity);
 };
 
