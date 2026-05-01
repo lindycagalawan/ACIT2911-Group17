@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExploreBC | Activities</title>
+    <link rel="stylesheet" href="/css/styles-activities.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <header class="navbar">
+        <h1 class="logo"><a href="/" class="n">ExploreBC</a></h1>
+        <nav class="nav-links">
+            <ul class="lp">
+                <li><a href="/" class="n">Home</a></li>
+                <li><a href="/destinations" class="n">Destinations</a></li>
+                <li><a href="/activities" class="n">Activities</a></li>
+                <li><a href="/food" class="n">Food & Restaurants</a></li>
+                <li><a href="/contact" class="n">Contact</a></li>
+            </ul>    
+        </nav>
+    </header>
+
+    <main> <!-- Main Content -->
+        <section class="intro">
+            <img src="/images/activities-intro.jpg" alt="Beautiful British Columbia landscape">
+            <div class="intro-text">
+                <h1 style="font-family: 'Dancing Script', cursive; font-size: clamp(2rem, 5vw, 3.5rem); text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                    Activity Log
+               </h1>
+                <p>Review, discover, and log popular activities in each location.</p>
+            </div>
+        </section>
+
+        <div class="activities">
+            <% if (typeof activities !== 'undefined' && activities.length > 0) { %>
+                <% activities.forEach(act => { %>
+                    <section class="card">
+                        <!-- Activity Image -->
+                        <img src="<%= act.image || '/images/default-activity.jpg' %>" alt="<%= act.title %>">
+                        
+                        <div class="card-content">
+                            <h3 style="font-family: 'Dancing Script', cursive; font-size: 2.2rem; color: #2e6b3d;">
+                                <%= act.title %>
+                            </h3>
+                            
+                            <ul style="list-style: none; padding: 0; margin-bottom: 15px;">
+                                <li style="margin-bottom: 5px;"><strong>Category:</strong> <%= act.type %></li>
+                                
+                                <!-- Difficulty Display -->
+                                <li style="margin-bottom: 5px;">
+                                    <strong>Difficulty:</strong> 
+                                    <span style="color: <%= act.difficulty >= 4 ? '#d9534f' : '#2e6b3d' %>; font-weight: bold;">
+                                        <%= act.difficulty %>/5
+                                    </span>
+                                </li>
+
+                                <!-- Experience Stars Display -->
+                                <li>
+                                    <strong>Experience:</strong> 
+                                    <span style="color: #f28c38; font-size: 1.2rem;">
+                                        <% for(let i = 0; i < 5; i++) { %>
+                                            <%= i < act.rating ? '★' : '☆' %>
+                                        <% } %>
+                                    </span>
+                                </li>
+                            </ul>
+
+                            <p style="color: #555; line-height: 1.6; margin-bottom: 20px;">
+                                <%= act.description.length > 120 ? act.description.substring(0, 120) + '...' : act.description %>
+                            </p>
+                            
+                            <div style="border-top: 1px solid #eee; padding-top: 15px; display: flex; justify-content: space-between; align-items: center;">
+                                <small style="color: #888;">By <strong><%= act.creator.uname %></strong></small>
+                            </div>
+                        </div>
+                    </section>
+                <% }) %>
+            <% } else { %>
+                <div style="grid-column: 1 / -1; text-align: center; padding: 50px;">
+                    <h3>No adventures logged yet.</h3>
+                    <p>Be the first to share your experience!</p>
+                    <a href="/activities/create" class="btn" style="display: inline-block; margin-top: 20px; background-color: #f28c38; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Log an Activity</a>
+                </div>
+            <% } %>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" style="text-align: center; padding: 40px 0; background: #22364a; color: white; margin-top: 40px;">
+        <a href="#" class="totem">
+            <img src="/images/totem_pole.png" alt="totem pole" class="totem_pole" style="width: 50px; margin-bottom: 10px;">
+        </a>
+        <p>&copy; 2026 ExploreBC. All rights reserved.</p>
+    </footer>
+</body>
+</html>
