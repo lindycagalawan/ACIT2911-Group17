@@ -34,7 +34,11 @@
     <main class="login-page">
       <section class="login-container">
         <h1>Login</h1>
-        <p>Sign in to comment, rate places, and save your visited locations.</p>
+        <p>Log in to comment, rate places, and save your visited locations.</p>
+
+        <% if (error) { %>
+          <p class="login-error"><%= error %></p>
+        <% } %>
 
         <form class="login-form" action="/login" method="POST">
           <label for="username">Username</label>

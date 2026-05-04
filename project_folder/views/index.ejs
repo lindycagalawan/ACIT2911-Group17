@@ -13,10 +13,20 @@
       rel="stylesheet"
     />
   </head>
+
   <body>
     <!-- Navigation -->
     <header class="navbar">
-      <h1 class="logo"><a href="/" class="n">ExploreBC</a></h1>
+      <div class="logo-area">
+        <h1 class="logo">
+          <a href="/" class="n">ExploreBC</a>
+        </h1>
+
+        <% if (user) { %>
+          <p class="welcome-under-logo">Welcome Back, <%= user.uname %>!</p>
+        <% } %>
+      </div>
+
       <nav class="nav-links">
         <ul class="lp">
           <li><a href="/" class="n">Home</a></li>
@@ -24,18 +34,29 @@
           <li><a href="/activities" class="n">Activities</a></li>
           <li><a href="/food" class="n">Food & Restaurants</a></li>
           <li><a href="/contact" class="n">Contact</a></li>
-          <li><a href="/login" class="n">Login</a></li>
+
+          <% if (user) { %>
+            <li>
+              <a href="/logout" class="n">Logout</a>
+            </li>
+          <% } else { %>
+            <li>
+              <a href="/login" class="n">Login</a>
+            </li>
+          <% } %>
         </ul>
       </nav>
     </header>
+
     <!-- Main Content -->
     <div class="hero">
       <div class="overlay"></div>
       <img src="/images/BC.jpg" alt="ExploreBC picture" />
+
       <div class="content">
         <h1
           style="
-            font-family: &quot;Dancing Script&quot;, cursive;
+            font-family: 'Dancing Script', cursive;
             font-size: clamp(2rem, 5vw, 3.5rem);
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
           "
@@ -45,9 +66,11 @@
         <p>Discover the beauty of British Columbia with us.</p>
       </div>
     </div>
+
     <div class="contact_us">
-      <a href="/contact" target="_blank" class="btn1"> Contact Us </a>
+      <a href="/contact" target="_blank" class="btn1">Contact Us</a>
     </div>
+
     <main class="card">
       <div class="container">
         <section class="Vancouver">
@@ -59,11 +82,13 @@
             />
           </a>
           <a href="/destinations#vancouver-id" class="btn">Read More</a>
+
           <div class="card-text">
             <h3>Vancouver</h3>
             <p>A vibrant coastal city surrounded by mountains and the ocean.</p>
           </div>
         </section>
+
         <section class="Victoria">
           <a href="#img2">
             <img
@@ -73,6 +98,7 @@
             />
           </a>
           <a href="/destinations#victoria-id" class="btn">Read More</a>
+
           <div class="card-text">
             <h3>Victoria</h3>
             <p>
@@ -81,6 +107,7 @@
             </p>
           </div>
         </section>
+
         <section class="Whistler">
           <a href="#img3">
             <img
@@ -90,6 +117,7 @@
             />
           </a>
           <a href="/destinations#whistler-id" class="btn">Read More</a>
+
           <div class="card-text">
             <h3>Whistler</h3>
             <p>
@@ -98,11 +126,13 @@
             </p>
           </div>
         </section>
+
         <section class="Tofino">
           <a href="#img4">
             <img src="/images/Tofino.jpg" alt="Tofino picture" class="img" />
           </a>
           <a href="/destinations#tofino-id" class="btn">Read More</a>
+
           <div class="card-text">
             <h3>Tofino</h3>
             <p>
@@ -116,6 +146,7 @@
             <img src="/images/Kelowna.jpg" alt="Kelowna picture" class="img" />
           </a>
           <a href="/destinations#kelowna-id" class="btn">Read More</a>
+
           <div class="card-text">
             <h3>Kelowna</h3>
             <p>
@@ -124,6 +155,7 @@
             </p>
           </div>
         </section>
+
         <section class="Revelstoke">
           <a href="#img6">
             <img
@@ -133,6 +165,7 @@
             />
           </a>
           <a href="/destinations#revelstoke-id" class="btn">Read More</a>
+
           <div class="card-text">
             <h3>Revelstoke</h3>
             <p>
@@ -142,32 +175,38 @@
           </div>
         </section>
       </div>
+
       <div class="gallery">
         <div id="img1" class="overlay1">
           <a href="#Vancouver">
             <img src="/images/Vancouver.jpg" alt="full image" class="full" />
           </a>
         </div>
+
         <div id="img2" class="overlay1">
           <a href="#Victoria">
             <img src="/images/Victoria.jpg" alt="full image" class="full" />
           </a>
         </div>
+
         <div id="img3" class="overlay1">
           <a href="#Whistler">
             <img src="/images/Whistler.jpg" alt="full image" class="full" />
           </a>
         </div>
+
         <div id="img4" class="overlay1">
           <a href="#Tofino">
             <img src="/images/Tofino.jpg" alt="full image" class="full" />
           </a>
         </div>
+
         <div id="img5" class="overlay1">
           <a href="#Kelowna">
             <img src="/images/Kelowna.jpg" alt="full image" class="full" />
           </a>
         </div>
+
         <div id="img6" class="overlay1">
           <a href="#Revelstoke">
             <img src="/images/Revelstoke.jpg" alt="full image" class="full" />
@@ -175,14 +214,13 @@
         </div>
       </div>
     </main>
+
     <!-- Footer -->
     <footer class="footer">
       <a href="#" class="totem">
-        <img src="/images/totem_pole.png" alt="totem pole" class="totem_pole"
-      /></a>
+        <img src="/images/totem_pole.png" alt="totem pole" class="totem_pole" />
+      </a>
       <p>&copy; 2026 ExploreBC. All rights reserved.</p>
     </footer>
-
-    <!-- focus effect -->
   </body>
 </html>

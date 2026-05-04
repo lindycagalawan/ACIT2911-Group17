@@ -881,3 +881,33 @@ a.totem {
 }
 
 /* END LOGIN PAGE CSS */
+
+.login-error {
+  background-color: #ffe0e0;
+  color: #9b1c1c;
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.logo-area {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.logo-area .logo {
+  margin-bottom: 0;
+}
+
+.welcome-under-logo {
+  margin: 28px 0 12px 0;
+  color: #f5893b;
+  font-family: Arial, sans-serif;
+  font-weight: 800;
+  font-size: 1.45rem;
+  letter-spacing: 0.3px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.12);
+}
