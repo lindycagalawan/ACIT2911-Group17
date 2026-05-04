@@ -2,6 +2,10 @@
     box-sizing: auto;
   }
 
+html {
+    scroll-behavior: smooth;
+}
+
 @media screen and (max-width:842px){
 
 .container{
@@ -734,6 +738,30 @@ box-shadow:0 10px 18px rgba(0,0,0,0.15);
 }
 
 /* section content*/
+
+#whistler-id {
+    scroll-margin-top: 100px;
+}
+
+#vancouver-id {
+    scroll-margin-top: 100px;
+}
+
+#tofino-id {
+    scroll-margin-top: 100px;
+}
+
+#victoria-id {
+    scroll-margin-top: 100px;
+}
+
+#revelstoke-id {
+    scroll-margin-top: 100px;
+}
+
+#kelowna-id {
+    scroll-margin-top: 100px;
+}
 
 #destinations-page .gallery {
   display: flex;
