@@ -50,6 +50,7 @@ body {
 
 .nav-links li a.n:hover {
   color: #f5893b;
+  transition: color 0.3s;
 }
 
 .nav-links ul {
@@ -661,6 +662,7 @@ box-shadow:0 10px 18px rgba(0,0,0,0.15);
 
 #destinations-page .nav-links li a.n:hover {
   color: #f5893b;
+  transition: color 0.3s;
 }
 
 
