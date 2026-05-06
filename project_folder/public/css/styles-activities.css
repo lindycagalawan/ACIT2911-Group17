@@ -64,9 +64,7 @@ a.n:hover {
 .intro {
     position: relative;
     width: 100%;
-    min-height: 300px;
-    height: 60vh;
-    max-height: 450px;
+    height: 400px;
     overflow: hidden;
     margin-bottom: 40px;
 }
