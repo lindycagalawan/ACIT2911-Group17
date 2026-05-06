@@ -89,7 +89,7 @@ a.n:hover{
 
 .hero img{
     width:100%;
-    height:350px;
+    height:400px;
     object-fit:cover;
 }
 
@@ -102,6 +102,7 @@ a.n:hover{
     transform:translate(-50%,-50%);
     color:white;
     text-align:center;
+    padding: 0 15%;
 }
 
 .hero h1{
@@ -112,7 +113,7 @@ a.n:hover{
 .hero p{
     padding: 1rem;
     font-size: clamp(0.8rem, 2vw, 1.3rem);
-    margin: 55px 0;
+    margin: 40px 0;
 }
 
 .contact_us{
@@ -647,7 +648,7 @@ box-shadow:0 10px 18px rgba(0,0,0,0.15);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1px 25px;
+    padding: 15px 20px;
     background-color: white;
     border-bottom: #f5893b 7px solid;
     /*background: linear-gradient( #f5893b,  #fda218, #f7d352);*/
@@ -721,8 +722,20 @@ box-shadow:0 10px 18px rgba(0,0,0,0.15);
 #destinations-page .hero-content {
     position: relative;
     z-index: 2;
-    padding: 20px;
+    padding: 0 15%;
     font-family: 'Montserrat', sans-serif;
+}
+
+#destinations-page .hero-content .title {
+    font-size: clamp(1rem, 5vw, 3rem);
+    top: 30%;
+    padding: 1rem;
+}
+
+#destinations-page .hero-content p {
+    padding: 1rem;
+    font-size: clamp(0.8rem, 2vw, 1.3rem);
+    margin: 40px 0;
 }
 
 /* general spacing content*/
@@ -739,29 +752,29 @@ box-shadow:0 10px 18px rgba(0,0,0,0.15);
 
 /* section content*/
 
-#whistler-id {
+  #whistler-id {
     scroll-margin-top: 100px;
-}
+  }
 
-#vancouver-id {
+  #vancouver-id {
     scroll-margin-top: 100px;
-}
+  }
 
-#tofino-id {
+  #tofino-id {
     scroll-margin-top: 100px;
-}
+  }
 
-#victoria-id {
+  #victoria-id {
     scroll-margin-top: 100px;
-}
+  }
 
-#revelstoke-id {
+  #revelstoke-id {
     scroll-margin-top: 100px;
-}
+  }
 
-#kelowna-id {
+  #kelowna-id {
     scroll-margin-top: 100px;
-}
+  }
 
 #destinations-page .gallery {
   display: flex;
@@ -815,6 +828,10 @@ box-shadow:0 10px 18px rgba(0,0,0,0.15);
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+  }
+
+  #destinations-page .navbar{
+    padding: 1px 25px;
   }
 
   #destinations-page .nav-links {
