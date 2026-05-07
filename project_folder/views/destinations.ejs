@@ -89,6 +89,19 @@
             stunning alpine views year-round.
           </p>
         </div>
+        <div class="visit-counter" style="margin-top: 15px;">
+            <% const whistlerData = destinations.find(d => d.id === 'whistler'); %>
+    
+            <form action="/destinations/visit/whistler" method="POST" style="display: inline;">
+                <button type="submit" style="background: #2e6b3d; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+                    I visited here!
+                </button>
+            </form>
+    
+            <span style="margin-left: 10px; font-weight: bold; color: #444;">
+                <%= whistlerData ? whistlerData.visitCount : 0 %> people have explored this spot!
+            </span>
+        </div>
       </section>
 
       <section class="Vancouver-section">
@@ -118,6 +131,19 @@
             culture.
           </p>
         </div>
+        <div class="visit-counter" style="margin-top: 15px;">
+            <% const vancouverData = destinations.find(d => d.id === 'vancouver'); %>
+    
+            <form action="/destinations/visit/vancouver" method="POST" style="display: inline;">
+                <button type="submit" style="background: #2e6b3d; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+                    I visited here!
+                </button>
+            </form>
+    
+            <span style="margin-left: 10px; font-weight: bold; color: #444;">
+                <%= vancouverData ? vancouverData.visitCount : 0 %> people have explored this spot!
+            </span>
+        </div>        
       </section>
 
       <section class="Tofino-section">
@@ -146,6 +172,19 @@
             rainforests, and opportunities for whale watching and kayaking.
           </p>
         </div>
+        <div class="visit-counter" style="margin-top: 15px;">
+            <% const tofinoData = destinations.find(d => d.id === 'tofino'); %>
+    
+            <form action="/destinations/visit/tofino" method="POST" style="display: inline;">
+                <button type="submit" style="background: #2e6b3d; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+                    I visited here!
+                </button>
+            </form>
+    
+            <span style="margin-left: 10px; font-weight: bold; color: #444;">
+                <%= tofinoData ? tofinoData.visitCount : 0 %> people have explored this spot!
+            </span>
+        </div>          
       </section>
 
       <section class="Victoria-section">
@@ -174,6 +213,19 @@
             parks, and scenic coastal views.
           </p>
         </div>
+        <div class="visit-counter" style="margin-top: 15px;">
+            <% const victoriaData = destinations.find(d => d.id === 'victoria'); %>
+    
+            <form action="/destinations/visit/victoria" method="POST" style="display: inline;">
+                <button type="submit" style="background: #2e6b3d; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+                    I visited here!
+                </button>
+            </form>
+    
+            <span style="margin-left: 10px; font-weight: bold; color: #444;">
+                <%= victoriaData ? victoriaData.visitCount : 0 %> people have explored this spot!
+            </span>
+        </div>          
       </section>
 
       <section class="Kelowna-section">
@@ -199,6 +251,19 @@
             hiking and biking trails.
           </p>
         </div>
+        <div class="visit-counter" style="margin-top: 15px;">
+            <% const kelownaData = destinations.find(d => d.id === 'kelowna'); %>
+    
+            <form action="/destinations/visit/kelowna" method="POST" style="display: inline;">
+                <button type="submit" style="background: #2e6b3d; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+                    I visited here!
+                </button>
+            </form>
+    
+            <span style="margin-left: 10px; font-weight: bold; color: #444;">
+                <%= kelownaData ? kelownaData.visitCount : 0 %> people have explored this spot!
+            </span>
+        </div>                  
       </section>
 
       <section class="Prince_Rupert-section">
@@ -228,6 +293,19 @@
             for outdoor enthusiasts.
           </p>
         </div>
+        <div class="visit-counter" style="margin-top: 15px;">
+            <% const revelstokeData = destinations.find(d => d.id === 'revelstoke'); %>
+    
+            <form action="/destinations/visit/revelstoke" method="POST" style="display: inline;">
+                <button type="submit" style="background: #2e6b3d; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+                    I visited here!
+                </button>
+            </form>
+    
+            <span style="margin-left: 10px; font-weight: bold; color: #444;">
+                <%= revelstokeData ? revelstokeData.visitCount : 0 %> people have explored this spot!
+            </span>
+        </div>    
       </section>
     </main>
 
