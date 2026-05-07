@@ -143,7 +143,10 @@ app.post("/activities/create", (req, res) => {
   res.redirect("/activities");
 });
 
-// Start Server
-app.listen(PORT, () =>
-  console.log(`✅ ExploreBC running — http://localhost:${PORT}`)
-);
+
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`✅ ExploreBC running — http://localhost:${PORT}`);
+    });
+}
+module.exports = app;

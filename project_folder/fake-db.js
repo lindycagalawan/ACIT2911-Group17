@@ -25,7 +25,7 @@ const activities = [
   rating: 4,
   description: "A challenging hike with rewarding views of the Howe Sound.",
   image: "/images/chief.jpg",
-  creator: { uname: "LindyC" }
+  creator: { uname: "MeghanC" }
 }
 ];
 
