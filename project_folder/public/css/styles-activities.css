@@ -28,6 +28,7 @@ nav.nav-links {
 }
 .nav-links li a.n:hover {
   color: #f5893b;
+  transition: color 0.3s;
 }
 
 .nav-links ul {
