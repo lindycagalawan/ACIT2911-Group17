@@ -109,7 +109,7 @@ a.n:hover{
 .hero p{
     padding: 1rem;
     font-size: clamp(0.8rem, 2vw, 1.3rem);
-    margin: 55px 0;
+    margin: 40px 0;
 }
 
 .contact_us{
@@ -719,8 +719,19 @@ box-shadow:0 10px 18px rgba(0,0,0,0.15);
 #destinations-page .hero-content {
     position: relative;
     z-index: 2;
-    padding: 20px;
+    padding: 0 15%;
     font-family: 'Montserrat', sans-serif;
+}
+
+#destinations-page .hero-content .title {
+    font-size: clamp(1rem, 5vw, 3rem);
+    top: 30%;
+    padding: 1rem;
+}
+
+#destinations-page .hero-content p {
+    font-size: clamp(0.8rem, 2vw, 1.3rem);
+    margin: 40px 0;
 }
 
 /* general spacing content*/
@@ -821,6 +832,10 @@ box-shadow:0 10px 18px rgba(0,0,0,0.15);
 
   #destinations-page .nav-links {
     margin-top: 0; 
+  }
+
+  #destinations-page .hero-content {
+    padding: 0 20%;
   }
 
   #destinations-page .content-row {
