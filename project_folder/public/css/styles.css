@@ -815,6 +815,10 @@ box-shadow:0 10px 18px rgba(0,0,0,0.15);
     align-items: center;
   }
 
+  #destinations-page .navbar{
+    padding: 1px 25px;
+  }
+
   #destinations-page .nav-links {
     margin-top: 0; 
   }
