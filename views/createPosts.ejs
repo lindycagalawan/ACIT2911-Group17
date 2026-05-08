@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.classless.min.css" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <title>Create Travel Post</titleInterface>
+  </head>
+  <body>
+    <%- include('partials/header', { user }) %>
+    <main>
+      <div class="authOptions">
+        <h1>Share a New Destination</h1>
+        <a role="button" href="/">Back to Home</a>
+      </div>
+
+      <% if (typeof error !== 'undefined' && error) { %>
+        <p style="color: #ff4444;"><%= error %></p>
+      <% } %>
+
+      <form action="/posts/create" method="POST">
+        <label for="title">Destination Name</label>
+        <input type="text" name="title" id="title" placeholder="e.g. Sunset at Tofino" required />
+
+        <label for="location">Location (City/Region)</label>
+        <input type="text" name="location" id="location" placeholder="e.g. Vancouver Island" required />
+
+        <label for="image">Image URL</label>
+        <input type="text" name="image" id="image" placeholder="Paste an image link (e.g. /images/surfing.jpg)" />
+
+        <label for="description">Your Story</label>
+        <textarea name="description" id="description" placeholder="Describe your experience..." required></textarea>
+
+        <button type="submit">Publish Post</button>
+      </form>
+    </main>
+  </body>
+</html>
