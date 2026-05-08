@@ -25,7 +25,7 @@ const activities = [
   rating: 4,
   description: "A challenging hike with rewarding views of the Howe Sound.",
   image: "/images/chief.jpg",
-  creator: { uname: "LindyC" }
+  creator: { uname: "MeghanC" }
 }
 ];
 
@@ -77,6 +77,7 @@ function addPost(title, description, creator, image) {
 const getActivities = () => activities;
 
 const addActivity = (activity) => {
+  activity.id = activities.length + 1; 
   activities.push(activity);
 };
 
@@ -93,7 +94,26 @@ function debug() {
   console.log("==== DB DEBUGGING ====");
 }
 
-// At the bottom of fake-db.js, replace the ' lines with:
+const destinations = [
+  { id: "whistler", name: "Whistler", visitCount: 0 },
+  { id: "vancouver", name: "Vancouver", visitCount: 0 },
+  { id: "tofino", name: "Tofino", visitCount: 0 },
+  { id: "victoria", name: "Victoria", visitCount: 0 },
+  { id: "kelowna", name: "Kelowna", visitCount: 0 },
+  { id: "revelstoke", name: "Revelstoke", visitCount: 0 }
+];
+
+const getDestinations = () => destinations;
+
+const incrementVisit = (id) => {
+  const dest = destinations.find(d => d.id === id);
+  if (dest) {
+    dest.visitCount += 1;
+    return dest.visitCount;
+  }
+  return null;
+};
+
 module.exports = {
     activities,
     getActivities,
@@ -104,5 +124,7 @@ module.exports = {
     getUserByUsername,
     getPosts,
     addPost,
-    addUser
+    addUser,
+    getDestinations,
+    incrementVisit
 };

@@ -1,150 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ExploreBC | Home</title>
-    <link rel="stylesheet" href="/css/styles.css">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
-    
-</head>
-<body>
+    <link rel="stylesheet" href="/css/styles.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
     <!-- Navigation -->
     <header class="navbar">
-        <h1 class="logo"><a href="index.html" class="n">ExploreBC</a></h1>
-        <nav class="nav-links">
-            <ul class="lp">
-                <li><a href="/" class="n">Home</a></li>
-                <li><a href="/destinations" class="n">Destinations</a></li>
-                <li><a href="/activities" class="n">Activities</a></li>
-                <li><a href="/food" class="n">Food & Restaurants</a></li>
-                <li><a href="/contact" class="n">Contact</a></li>
-            </ul>    
-        </nav>
+      <div class="logo-area">
+        <h1 class="logo">
+          <a href="/" class="n">ExploreBC</a>
+        </h1>
+
+        <% if (user) { %>
+          <p class="welcome-under-logo">Welcome Back, <%= user.uname %>!</p>
+        <% } %>
+      </div>
+
+      <nav class="nav-links">
+        <ul class="lp">
+          <li><a href="/" class="n">Home</a></li>
+          <li><a href="/destinations" class="n">Destinations</a></li>
+          <li><a href="/activities" class="n">Activities</a></li>
+          <li><a href="/food" class="n">Food & Restaurants</a></li>
+          <li><a href="/contact" class="n">Contact</a></li>
+
+          <% if (user) { %>
+            <li>
+              <a href="/logout" class="n">Logout</a>
+            </li>
+          <% } else { %>
+            <li>
+              <a href="/login" class="n">Login</a>
+            </li>
+          <% } %>
+        </ul>
+      </nav>
     </header>
+
     <!-- Main Content -->
     <div class="hero">
-        <div class="overlay"></div>
-        <img src="/images/BC.jpg" alt="ExploreBC picture">
-        <div class="content">
-            <h1 style="font-family: 'Dancing Script', cursive; font-size: clamp(2rem, 5vw, 3.5rem); text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
-                Welcome to British Columbia
-            </h1>
+      <div class="overlay"></div>
+      <img src="/images/BC.jpg" alt="ExploreBC picture" />
+
+      <div class="content">
+        <h1
+          style="
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+          "
+        >
+          Welcome to British Columbia
+        </h1>
         <p>Discover the beauty of British Columbia with us.</p>
-        </div>
+      </div>
     </div>
+
     <div class="contact_us">
-            <a href="/contact" target="_blank" class="btn1">
-                Contact Us
-            </a>
+      <a href="/contact" target="_blank" class="btn1">Contact Us</a>
     </div>
+
     <main class="card">
-        <div class="container">
+      <div class="container">
         <section class="Vancouver">
-            <a href="#img1">
-                <img src="/images/Vancouver.jpg" alt="Vancouver picture" class="img">
-            </a>
-            <a href="/destinations#vancouver-id" class="btn">Read More</a>
-        <div class="card-text">
+          <a href="#img1">
+            <img
+              src="/images/Vancouver.jpg"
+              alt="Vancouver picture"
+              class="img"
+            />
+          </a>
+          <a href="/destinations#vancouver-id" class="btn">Read More</a>
+
+          <div class="card-text">
             <h3>Vancouver</h3>
             <p>A vibrant coastal city surrounded by mountains and the ocean.</p>
-        </div>
+          </div>
         </section>
+
         <section class="Victoria">
-            <a href="#img2">
-                <img src="/images/Victoria.jpg" alt="Victoria picture" class="img">
-            </a>
-            <a href="/destinations#victoria-id" class="btn">Read More</a>
-        <div class="card-text">
+          <a href="#img2">
+            <img
+              src="/images/Victoria.jpg"
+              alt="Victoria picture"
+              class="img"
+            />
+          </a>
+          <a href="/destinations#victoria-id" class="btn">Read More</a>
+
+          <div class="card-text">
             <h3>Victoria</h3>
-            <p>The capital of British Columbia known for its historic harbor and gardens.</p>  
-        </div>
+            <p>
+              The capital of British Columbia known for its historic harbor and
+              gardens.
+            </p>
+          </div>
         </section>
+
         <section class="Whistler">
-            <a href="#img3">
-                <img src="/images/Whistler.jpg" alt="Whistler picture" class="img">
-            </a>
-            <a href="/destinations#whistler-id" class="btn">Read More</a>
-        <div class="card-text">
+          <a href="#img3">
+            <img
+              src="/images/Whistler.jpg"
+              alt="Whistler picture"
+              class="img"
+            />
+          </a>
+          <a href="/destinations#whistler-id" class="btn">Read More</a>
+
+          <div class="card-text">
             <h3>Whistler</h3>
-            <p>A world-famous mountain resort popular for skiing and outdoor adventures.</p>
-        </div>
+            <p>
+              A world-famous mountain resort popular for skiing and outdoor
+              adventures.
+            </p>
+          </div>
         </section>
+
         <section class="Tofino">
-            <a href="#img4">
-                <img src="/images/Tofino.jpg" alt="Tofino picture" class="img">
-            </a>
-            <a href="/destinations#tofino-id" class="btn">Read More</a>
-        <div class="card-text">
+          <a href="#img4">
+            <img src="/images/Tofino.jpg" alt="Tofino picture" class="img" />
+          </a>
+          <a href="/destinations#tofino-id" class="btn">Read More</a>
+
+          <div class="card-text">
             <h3>Tofino</h3>
-            <p>A scenic coastal town known for surfing, beaches, and ocean views.</p>  
-        </div>
+            <p>
+              A scenic coastal town known for surfing, beaches, and ocean views.
+            </p>
+          </div>
         </section>
-        
+
         <section class="Kelowna">
-            <a href="#img5">
-                <img src="/images/Kelowna.jpg" alt="Kelowna picture" class="img">
-            </a>
-            <a href="/destinations#kelowna-id" class="btn">Read More</a>
-        <div class="card-text">
+          <a href="#img5">
+            <img src="/images/Kelowna.jpg" alt="Kelowna picture" class="img" />
+          </a>
+          <a href="/destinations#kelowna-id" class="btn">Read More</a>
+
+          <div class="card-text">
             <h3>Kelowna</h3>
-            <p>A beautiful lakefront city in the Okanagan Valley famous for wineries and warm weather.</p>  
-        </div>
+            <p>
+              A beautiful lakefront city in the Okanagan Valley famous for
+              wineries and warm weather.
+            </p>
+          </div>
         </section>
+
         <section class="Revelstoke">
-            <a href="#img6">
-                <img src="/images/Revelstoke.jpg" alt="Revelstoke picture" class="img">
-            </a>
-            <a href="/destinations#revelstoke-id" class="btn">Read More</a>
-        <div class="card-text">
+          <a href="#img6">
+            <img
+              src="/images/Revelstoke.jpg"
+              alt="Revelstoke picture"
+              class="img"
+            />
+          </a>
+          <a href="/destinations#revelstoke-id" class="btn">Read More</a>
+
+          <div class="card-text">
             <h3>Revelstoke</h3>
-            <p>A mountain town known for skiing, hiking, and stunning alpine scenery.</p>  
-        </div>
+            <p>
+              A mountain town known for skiing, hiking, and stunning alpine
+              scenery.
+            </p>
+          </div>
         </section>
+      </div>
+
+      <div class="gallery">
+        <div id="img1" class="overlay1">
+          <a href="#Vancouver">
+            <img src="/images/Vancouver.jpg" alt="full image" class="full" />
+          </a>
         </div>
-        <div class="gallery">
-            <div id="img1" class="overlay1">
-                <a href="#Vancouver">
-                <img src="/images/Vancouver.jpg" alt="full image" class="full">
-                </a>
-            </div>
-            <div id="img2" class="overlay1">
-                <a href="#Victoria">
-                <img src="/images/Victoria.jpg" alt="full image" class="full">
-                </a>
-            </div>
-            <div id="img3" class="overlay1">
-                <a href="#Whistler">
-                <img src="/images/Whistler.jpg" alt="full image" class="full">
-                </a>
-            </div>
-            <div id="img4" class="overlay1">
-                <a href="#Tofino">
-                <img src="/images/Tofino.jpg" alt="full image" class="full">
-                </a>
-            </div>
-            <div id="img5" class="overlay1">
-                <a href="#Kelowna">
-                <img src="/images/Kelowna.jpg" alt="full image" class="full">
-                </a>
-            </div>
-            <div id="img6" class="overlay1">
-                <a href="#Revelstoke">
-                <img src="/images/Revelstoke.jpg" alt="full image" class="full">
-                </a>
-            </div>
+
+        <div id="img2" class="overlay1">
+          <a href="#Victoria">
+            <img src="/images/Victoria.jpg" alt="full image" class="full" />
+          </a>
         </div>
+
+        <div id="img3" class="overlay1">
+          <a href="#Whistler">
+            <img src="/images/Whistler.jpg" alt="full image" class="full" />
+          </a>
+        </div>
+
+        <div id="img4" class="overlay1">
+          <a href="#Tofino">
+            <img src="/images/Tofino.jpg" alt="full image" class="full" />
+          </a>
+        </div>
+
+        <div id="img5" class="overlay1">
+          <a href="#Kelowna">
+            <img src="/images/Kelowna.jpg" alt="full image" class="full" />
+          </a>
+        </div>
+
+        <div id="img6" class="overlay1">
+          <a href="#Revelstoke">
+            <img src="/images/Revelstoke.jpg" alt="full image" class="full" />
+          </a>
+        </div>
+      </div>
     </main>
+
     <!-- Footer -->
     <footer class="footer">
-        <a href="#" class="totem">
-        <img src="/images/totem_pole.png" alt="totem pole" class="totem_pole"></a>
-        <p>&copy; 2026 ExploreBC. All rights reserved.</p>
+      <a href="#" class="totem">
+        <img src="/images/totem_pole.png" alt="totem pole" class="totem_pole" />
+      </a>
+      <p>&copy; 2026 ExploreBC. All rights reserved.</p>
     </footer>
-
-    <!-- focus effect -->
-</body>
+  </body>
 </html>
