@@ -1,0 +1,426 @@
+/* test */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f8f6f2;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+.lp {
+    font-size: clamp(0.8rem, 2vw, 1.3rem);
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px 25px;
+    background-color: white;
+    border-bottom: #f5893b 7px solid;
+}
+
+nav.nav-links {
+    background: transparent;
+}
+.nav-links li a.n:hover {
+  color: #f5893b;
+}
+
+.nav-links ul {
+    background-color: transparent;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+}
+
+a.n {
+    text-decoration: none;
+    color: #030304;
+    background-color: transparent;
+}
+
+a.n:hover {
+    background: transparent;
+    color: #1f2439;
+}
+
+.logo {
+    display: flex;
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+    color: #030304;
+    background-color: transparent;
+    font-size: clamp(1.4rem, 4vw, 3rem);
+}
+
+/* HERO */
+.intro {
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+    height: 60vh;
+    max-height: 450px;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+.intro::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.15); /* adjust darkness */
+    z-index: 1;
+}
+
+.intro img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 10%;
+    display: block;
+}
+
+.intro::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.65),
+        rgba(0,0,0,0.25)
+    );
+}
+
+.intro-text {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transform: translateY(-20%);
+    padding: 0 20px;
+    color: #f5f5f5;
+}
+
+.intro-text h2 {
+    margin-bottom: 10px;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+}
+
+.intro-text p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-weight: 400;
+    max-width: 700px;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+}
+
+/* ACTIVITIES */
+.activities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    padding: 40px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.card {
+    flex: 1 1 320px;
+    max-width: 420px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid #ece8e1;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.card:hover img {
+    transform: scale(1.03);
+}
+
+.card h3 {
+    margin: 0;
+    padding: 18px 24px 12px;
+    font-size: clamp(1.3rem, 3vw, 1.75rem);
+    font-weight: 600;
+    color: #2e6b3d;
+    letter-spacing: 0.3px;
+    border-bottom: 2px solid #ff7a18;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.card ul {
+    margin: 10px 0;
+    padding: 0 26px;
+    list-style: none;
+    color: #22364a;
+    font-size: 1rem;
+    line-height: 1.8;
+    font-weight: 500;
+}
+
+.card li {
+    margin-bottom: 14px;
+    padding-left: 0;
+    
+}
+
+.card li::before {
+    content: none;
+}
+
+.card a {
+    display: inline-block;
+    margin: 10px 26px 26px;
+    padding: 10px 18px;
+    background-color: #f28c38;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 999px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-self: flex-start;
+}
+
+.card a:hover {
+    background-color: #d97322;
+    transform: translateY(-2px);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 20px 26px; /* Everyone inside stays 26px away from the edges */
+}
+
+/* TRAVEL TIPS */
+.travel-tips {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.travel-tips h2 {
+    text-align: center;
+    font-size: clamp(1.7rem, 4vw, 2.2rem);
+    font-weight: 700;
+    color: #2e6b3d;
+    margin-bottom: 35px;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.tip-box {
+    background: #ffffff;
+    padding: 28px 24px;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid #f28c38;
+}
+
+.tip-box h3 {
+    margin: 0 0 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2e6b3d;
+}
+
+.tip-box p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #555;
+}
+
+.footer{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    padding: 18px;
+    color: white;
+    background-color: #2d6a4f;
+    margin-top: 50px;
+    border-top: 7px solid #f5893b;
+}
+
+/* Back To Top Character */
+a.totem{
+    position: fixed;
+    bottom: -35px;
+    right: -35px;
+    z-index: 20;
+}
+
+.totem_pole{
+    width: 260px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.totem_pole:hover{
+    transform: scale(1.1);
+}
+
+/* Speech Bubble */
+.totem::after{
+    content: "The world is so big,\A go and explore it.";
+
+    width: 140px;
+
+    white-space: pre-line;
+
+    position: absolute;
+
+    bottom: 90%;
+
+    left: 50%;
+
+    background: white;
+
+    color: black;
+
+    border: 3px solid #2d6a4f;
+
+    border-top: 6px solid #f5893b;
+
+    padding: 8px 12px;
+
+    border-radius: 20px;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform: translate(-50%, 10px);
+
+    transition: 0.3s;
+}
+
+.totem:hover::after{
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+
+.totem:hover::after{
+    opacity: 1;
+    transform: translate(-50%,0);
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+    .activities {
+        gap: 24px;
+        padding: 35px 18px;
+    }
+
+    .card img {
+        height: 220px;
+    }
+
+    .travel-tips {
+        margin: 60px auto;
+    }
+}
+
+/* PHONE */
+@media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 15px 20px;}
+    
+     .nav-links ul, .lp {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        padding: 0;
+    }
+
+    .intro {
+        min-height: 260px;
+        height: 50vh;
+    }
+
+    .intro-text {
+        padding: 16px;
+    }
+
+    .activities {
+        padding: 30px 14px;
+        gap: 20px;
+    }
+
+    .card {
+        border-radius: 14px;
+    }
+
+    .card img {
+        height: 200px;
+    }
+
+    .card h3 {
+        padding: 16px 18px 10px;
+    }
+
+    .card ul {
+        padding: 0 18px;
+        font-size: 0.96rem;
+        line-height: 1.6;
+    }
+
+    .card a {
+        margin: 8px 18px 20px;
+    }
+
+    .tip-box {
+        padding: 22px 18px;
+    }
+
+
+}

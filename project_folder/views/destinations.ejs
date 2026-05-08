@@ -1,319 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Destinations</title>
-    <link rel="stylesheet" href="/css/styles.css" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/style.css">
 
-  <body id="destinations-page">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+</head>
+
+<body id="destinations-page">
+
+    <!-- Navbar -->
     <header class="navbar">
-      <h1 class="logo">
-        <a href="/" class="n">ExploreBC</a>
-      </h1>
+        <h1 class="logo">
+            <a href="/" class="n">ExploreBC</a>
+        </h1>
 
-      <nav class="nav-links">
-        <ul class="lp">
-          <li><a href="/" class="n">Home</a></li>
-          <li><a href="/destinations" class="n">Destinations</a></li>
-          <li><a href="/activities" class="n">Activities</a></li>
-          <li><a href="/food" class="n">Food & Restaurants</a></li>
-          <li><a href="/contact" class="n">Contact</a></li>
+        <nav class="nav-links">
+            <ul class="lp">
+                <li><a href="/" class="n">Home</a></li>
+                <li><a href="/destinations" class="n">Destinations</a></li>
+                <li><a href="/activities" class="n">Activities</a></li>
+                <li><a href="/food" class="n">Food & Restaurants</a></li>
+                <li><a href="/contact" class="n">Contact</a></li>
 
-          <% if (user) { %>
-            <li>
-              <a href="/logout" class="n">Logout</a>
-            </li>
-          <% } else { %>
-            <li>
-              <a href="/login" class="n">Login</a>
-            </li>
-          <% } %>
-        </ul>
-      </nav>
+                <% if (user) { %>
+                    <li>
+                        <a href="/auth/logout" class="n">
+                            Logout (<%= user.uname %>)
+                        </a>
+                    </li>
+                <% } else { %>
+                    <li><a href="/auth/login" class="n">Login</a></li>
+                <% } %>
+            </ul>
+        </nav>
     </header>
 
+    <!-- Hero Section -->
     <div class="destinations-hero">
-      <div class="destinations-overlay"></div>
 
-      <div class="hero-content">
-        <h1
-          style="
-            font-family: 'Dancing Script', cursive;
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-          "
-        >
-          Destinations in British Columbia
-        </h1>
-        <p>
-          Immerse yourself in the natural wonder of BC. Explore world-class
-          destinations and find your next favorite spot to unplug and explore.
-        </p>
-      </div>
+        <div class="destinations-overlay"></div>
+
+        <div class="hero-content">
+
+            <h1
+                style="
+                font-family: 'Dancing Script', cursive;
+                font-size: clamp(2rem, 5vw, 3.5rem);
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+                "
+            >
+                Destinations in British Columbia
+            </h1>
+
+            <p>
+                Immerse yourself in the natural wonder of BC.
+                Explore world-class destinations and find your
+                next favorite spot to unplug and explore.
+            </p>
+
+        </div>
     </div>
 
+    <!-- Main Content -->
     <main>
-      <section class="Whistler-section">
-        <h2>Whistler</h2>
 
-        <div class="content-row">
-          <div class="gallery">
-            <img
-              src="/images/Whistler_Town_Night.jpg"
-              alt="Whister's town during the night"
-            />
-            <img
-              src="/images/Whistler_Snowy_Mountain_Night.avif"
-              alt="Whister's snowy mountain at night"
-            />
-            <img
-              src="/images/Whistler_Town_Sunny.png"
-              alt="Whister's town during a sunny day"
-            />
-          </div>
+        <!-- Whistler -->
+        <section class="Whistler-section">
 
-          <p id="whistler-id">
-            Whistler is a world-famous mountain resort located north of
-            Vancouver. It is known for skiing and snowboarding at Whistler
-            Blackcomb, as well as hiking, biking, and scenic gondola rides in
-            the summer. The lively pedestrian village offers shops, cafes, and
-            stunning alpine views year-round.
-          </p>
-        </div>
-        <div class="visit-counter" style="margin-top: 15px;">
-            <% const whistlerData = destinations.find(d => d.id === 'whistler'); %>
-    
-            <form action="/destinations/visit/whistler" method="POST" style="display: inline;">
-                <button type="submit" style="background: #2e6b3d; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
-                    I visited here!
-                </button>
-            </form>
-    
-            <span style="margin-left: 10px; font-weight: bold; color: #444;">
-                <%= whistlerData ? whistlerData.visitCount : 0 %> people have explored this spot!
-            </span>
-        </div>
-      </section>
+            <h2>Whistler</h2>
 
-      <section class="Vancouver-section">
-        <h2>Vancouver</h2>
+            <div class="content-row">
 
-        <div class="content-row">
-          <div class="gallery">
-            <img
-              src="/images/Vancouver_City_View.webp"
-              alt="Upward view of Vancouver"
-            />
-            <img
-              src="/images/Vancouver_Granville.jpg"
-              alt="Dock view at Granville Island"
-            />
-            <img
-              src="/images/Vancouver_Stanley_Park.jpg"
-              alt="Stanley Park seawall during a sunset"
-            />
-          </div>
+                <div class="gallery">
+                    <img src="/images/Whistler_Town_Night.jpg" alt="Whistler town during the night">
 
-          <p id="vancouver-id">
-            Vancouver is a vibrant coastal city surrounded by mountains and
-            ocean. Visitors can bike around Stanley Park, relax on the city’s
-            beaches, or explore neighborhoods like Gastown and Granville Island.
-            The city offers a perfect balance of outdoor adventure and urban
-            culture.
-          </p>
-        </div>
-        <div class="visit-counter" style="margin-top: 15px;">
-            <% const vancouverData = destinations.find(d => d.id === 'vancouver'); %>
-    
-            <form action="/destinations/visit/vancouver" method="POST" style="display: inline;">
-                <button type="submit" style="background: #2e6b3d; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
-                    I visited here!
-                </button>
-            </form>
-    
-            <span style="margin-left: 10px; font-weight: bold; color: #444;">
-                <%= vancouverData ? vancouverData.visitCount : 0 %> people have explored this spot!
-            </span>
-        </div>        
-      </section>
+                    <img src="/images/Whistler_Snowy_Mountain_Night.avif" alt="Whistler snowy mountain at night">
 
-      <section class="Tofino-section">
-        <h2>Tofino</h2>
+                    <img src="/images/Whistler_Town_Sunny.png" alt="Whistler town during a sunny day">
+                </div>
 
-        <div class="content-row">
-          <div class="gallery">
-            <img
-              src="/images/Tofino_Beach_View.webp"
-              alt="An upward view of Tofino's beaches"
-            />
-            <img
-              src="/images/Tofino_Dock_Sunset.jpg"
-              alt="Tofino's docks during sunset"
-            />
-            <img
-              src="/images/Tofino_Harbour.webp"
-              alt="Tofino's harbor populated by boats"
-            />
-          </div>
+                <p id="whistler-id">
+                    Whistler is a world-famous mountain resort located north of Vancouver.
+                    It is known for skiing and snowboarding at Whistler Blackcomb,
+                    as well as hiking, biking, and scenic gondola rides in the summer.
+                    The lively pedestrian village offers shops, cafes, and stunning alpine
+                    views year-round.
+                </p>
 
-          <p id="tofino-id">
-            Tofino is a small coastal town on Vancouver Island famous for
-            surfing and breathtaking ocean scenery. Located near Pacific Rim
-            National Park Reserve, it features long sandy beaches, lush
-            rainforests, and opportunities for whale watching and kayaking.
-          </p>
-        </div>
-        <div class="visit-counter" style="margin-top: 15px;">
-            <% const tofinoData = destinations.find(d => d.id === 'tofino'); %>
-    
-            <form action="/destinations/visit/tofino" method="POST" style="display: inline;">
-                <button type="submit" style="background: #2e6b3d; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
-                    I visited here!
-                </button>
-            </form>
-    
-            <span style="margin-left: 10px; font-weight: bold; color: #444;">
-                <%= tofinoData ? tofinoData.visitCount : 0 %> people have explored this spot!
-            </span>
-        </div>          
-      </section>
+            </div>
+        </section>
 
-      <section class="Victoria-section">
-        <h2>Victoria</h2>
+        <!-- Vancouver -->
+        <section class="Vancouver-section">
 
-        <div class="content-row">
-          <div class="gallery">
-            <img
-              src="/images/Victoria_Parliament.webp"
-              alt="Parliament Building"
-            />
-            <img
-              src="/images/Victoria_Chinatown.jpg"
-              alt="Entrance to Chinatown"
-            />
-            <img
-              src="/images/Victoria_Flowers.jpg"
-              alt="Flowers with Victoria's harbour and Parliament in the background"
-            />
-          </div>
+            <h2>Vancouver</h2>
 
-          <p id="victoria-id">
-            Victoria, the capital city of British Columbia, is known for its
-            historic charm and beautiful waterfront. Visitors can explore the
-            Inner Harbour, visit the famous Butchart Gardens, or enjoy museums,
-            parks, and scenic coastal views.
-          </p>
-        </div>
-        <div class="visit-counter" style="margin-top: 15px;">
-            <% const victoriaData = destinations.find(d => d.id === 'victoria'); %>
-    
-            <form action="/destinations/visit/victoria" method="POST" style="display: inline;">
-                <button type="submit" style="background: #2e6b3d; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
-                    I visited here!
-                </button>
-            </form>
-    
-            <span style="margin-left: 10px; font-weight: bold; color: #444;">
-                <%= victoriaData ? victoriaData.visitCount : 0 %> people have explored this spot!
-            </span>
-        </div>          
-      </section>
+            <div class="content-row">
 
-      <section class="Kelowna-section">
-        <h2>Kelowna</h2>
+                <div class="gallery">
+                    <img src="/images/Vancouver_City_View.webp" alt="Upward view of Vancouver">
 
-        <div class="content-row">
-          <div class="gallery">
-            <img src="/images/Kelowna_View.jpg" alt="Upward view of Kelowna" />
-            <img
-              src="/images/Kelowna_Vineyard_Lake.jpg"
-              alt="Vineyard overlooking Okanagan lake"
-            />
-            <img
-              src="/images/Kelowna_Park.webp"
-              alt="Bikers by a park's seawall"
-            />
-          </div>
+                    <img src="/images/Vancouver_Granville.jpg" alt="Dock view at Granville Island">
 
-          <p id="kelowna-id">
-            Kelowna is located in the sunny Okanagan Valley and is known for its
-            warm climate, vineyards, and lakefront scenery. Visitors can relax
-            on Okanagan Lake beaches, tour local wineries, or explore nearby
-            hiking and biking trails.
-          </p>
-        </div>
-        <div class="visit-counter" style="margin-top: 15px;">
-            <% const kelownaData = destinations.find(d => d.id === 'kelowna'); %>
-    
-            <form action="/destinations/visit/kelowna" method="POST" style="display: inline;">
-                <button type="submit" style="background: #2e6b3d; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
-                    I visited here!
-                </button>
-            </form>
-    
-            <span style="margin-left: 10px; font-weight: bold; color: #444;">
-                <%= kelownaData ? kelownaData.visitCount : 0 %> people have explored this spot!
-            </span>
-        </div>                  
-      </section>
+                    <img src="/images/Vancouver_Stanley_Park.jpg" alt="Stanley Park seawall during sunset">
+                </div>
 
-      <section class="Prince_Rupert-section">
-        <h2>Revelstoke</h2>
+                <p id="vancouver-id">
+                    Vancouver is a vibrant coastal city surrounded by mountains and ocean.
+                    Visitors can bike around Stanley Park, relax on the city’s beaches,
+                    or explore neighborhoods like Gastown and Granville Island.
+                    The city offers a perfect balance of outdoor adventure and urban culture.
+                </p>
 
-        <div class="content-row">
-          <div class="gallery">
-            <img
-              src="/images/Revelstoke_Gondola_Mountains.webp"
-              alt="Gondola going up a mountain"
-            />
-            <img
-              src="/images/Revelstoke_Town.jpeg"
-              alt="Revelstoke town with mountain in background"
-            />
-            <img
-              src="/images/Revelstoke_Snowy_Mountains.jpg"
-              alt="Snowboarder going down snowy mountain"
-            />
-          </div>
+            </div>
+        </section>
 
-          <p id="revelstoke-id">
-            Revelstoke is a scenic mountain city known for year-round adventure.
-            Visitors can enjoy world-class skiing at Revelstoke Mountain Resort,
-            as well as hiking, biking, and gondola rides in the summer. With its
-            charming downtown and stunning alpine views, it is a perfect spot
-            for outdoor enthusiasts.
-          </p>
-        </div>
-        <div class="visit-counter" style="margin-top: 15px;">
-            <% const revelstokeData = destinations.find(d => d.id === 'revelstoke'); %>
-    
-            <form action="/destinations/visit/revelstoke" method="POST" style="display: inline;">
-                <button type="submit" style="background: #2e6b3d; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
-                    I visited here!
-                </button>
-            </form>
-    
-            <span style="margin-left: 10px; font-weight: bold; color: #444;">
-                <%= revelstokeData ? revelstokeData.visitCount : 0 %> people have explored this spot!
-            </span>
-        </div>    
-      </section>
+        <!-- Tofino -->
+        <section class="Tofino-section">
+
+            <h2>Tofino</h2>
+
+            <div class="content-row">
+
+                <div class="gallery">
+                    <img src="/images/Tofino_Beach_View.webp" alt="View of Tofino beach">
+
+                    <img src="/images/Tofino_Dock_Sunset.jpg" alt="Tofino docks during sunset">
+
+                    <img src="/images/Tofino_Harbour.webp" alt="Tofino harbour with boats">
+                </div>
+
+                <p id="tofino-id">
+                    Tofino is a small coastal town on Vancouver Island famous for surfing
+                    and breathtaking ocean scenery. Located near Pacific Rim National Park
+                    Reserve, it features long sandy beaches, lush rainforests,
+                    and opportunities for whale watching and kayaking.
+                </p>
+
+            </div>
+        </section>
+
+        <!-- Victoria -->
+        <section class="Victoria-section">
+
+            <h2>Victoria</h2>
+
+            <div class="content-row">
+
+                <div class="gallery">
+                    <img src="/images/Victoria_Parliament.webp" alt="Parliament Building">
+
+                    <img src="/images/Victoria_Chinatown.jpg" alt="Entrance to Chinatown">
+
+                    <img src="/images/Victoria_Flowers.jpg" alt="Flowers with Victoria harbour">
+                </div>
+
+                <p id="victoria-id">
+                    Victoria, the capital city of British Columbia, is known for its historic
+                    charm and beautiful waterfront. Visitors can explore the Inner Harbour,
+                    visit the famous Butchart Gardens, or enjoy museums, parks,
+                    and scenic coastal views.
+                </p>
+
+            </div>
+        </section>
+
+        <!-- Kelowna -->
+        <section class="Kelowna-section">
+
+            <h2>Kelowna</h2>
+
+            <div class="content-row">
+
+                <div class="gallery">
+                    <img src="/images/Kelowna_View.jpg" alt="View of Kelowna">
+
+                    <img src="/images/Kelowna_Vineyard_Lake.jpg" alt="Vineyard overlooking Okanagan Lake">
+
+                    <img src="/images/Kelowna_Park.webp" alt="Park seawall in Kelowna">
+                </div>
+
+                <p id="kelowna-id">
+                    Kelowna is located in the sunny Okanagan Valley and is known for its warm
+                    climate, vineyards, and lakefront scenery. Visitors can relax on Okanagan
+                    Lake beaches, tour local wineries, or explore nearby hiking and biking trails.
+                </p>
+
+            </div>
+        </section>
+
+        <!-- Revelstoke -->
+        <section class="Prince_Rupert-section">
+
+            <h2>Revelstoke</h2>
+
+            <div class="content-row">
+
+                <div class="gallery">
+                    <img src="/images/Revelstoke_Gondola_Mountains.webp" alt="Gondola going up mountain">
+
+                    <img src="/images/Revelstoke_Town.jpeg" alt="Revelstoke town">
+
+                    <img src="/images/Revelstoke_Snowy_Mountains.jpg" alt="Snowboarder on mountain">
+                </div>
+
+                <p id="revelstoke-id">
+                    Revelstoke is a scenic mountain city known for year-round adventure.
+                    Visitors can enjoy world-class skiing at Revelstoke Mountain Resort,
+                    as well as hiking, biking, and gondola rides in the summer.
+                    With its charming downtown and stunning alpine views,
+                    it is a perfect spot for outdoor enthusiasts.
+                </p>
+
+            </div>
+        </section>
+
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
-      <a href="#" class="totem">
-        <img src="/images/totem_pole.png" alt="totem pole" class="totem_pole" />
-      </a>
-      <p>&copy; 2026 ExploreBC. All rights reserved.</p>
+
+        <a href="#" class="totem">
+            <img
+                src="/images/totem_pole.png"
+                alt="totem pole"
+                class="totem_pole"
+            >
+        </a>
+
+        <p>&copy; 2026 ExploreBC. All rights reserved.</p>
+
     </footer>
-  </body>
+
+</body>
 </html>
