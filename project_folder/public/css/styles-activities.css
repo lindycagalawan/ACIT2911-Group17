@@ -41,24 +41,16 @@ nav.nav-links {
     margin: 0;
 }
 
-a.n {
-    text-decoration: none;
-    color: #030304;
-    background-color: transparent;
-}
-
-a.n:hover {
-    background: transparent;
-    color: #1f2439;
+ a.n {
+  text-decoration: none;
+  color: #030304;
 }
 
 .logo {
-    display: flex;
-    font-family: 'Dancing Script', cursive;
-    font-weight: bold;
-    color: #030304;
-    background-color: transparent;
-    font-size: clamp(1.4rem, 4vw, 3rem);
+  font-family: "Dancing Script", cursive;
+  font-weight: bold;
+  color: #030304;
+  font-size: clamp(1rem, 5vw, 3rem);
 }
 
 /* HERO */
