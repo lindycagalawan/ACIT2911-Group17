@@ -2,6 +2,10 @@
   box-sizing: auto;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @media screen and (max-width: 842px) {
   .container {
     flex-direction: column;
