@@ -6,6 +6,8 @@ const {
   getActivities,
   addActivity,
   getUserByUsername,
+  getDestinations,
+  incrementVisit,
 } = require("./fake-db");
 
 const app = express();
@@ -43,7 +45,13 @@ app.get("/destinations", (req, res) => {
   res.render("destinations", {
     pageTitle: "Destinations",
     user: req.session.user || null,
+    destinations: getDestinations() // Pass the counts to the EJS
   });
+});
+
+app.post("/destinations/visit/:id", (req, res) => {
+  incrementVisit(req.params.id);
+  res.redirect("/destinations"); // Refresh the page to show the new count
 });
 
 // Food & Restaurants Page
@@ -149,4 +157,6 @@ if (require.main === module) {
         console.log(`✅ ExploreBC running — http://localhost:${PORT}`);
     });
 }
+
+
 module.exports = app;
