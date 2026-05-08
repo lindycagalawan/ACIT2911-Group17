@@ -181,8 +181,11 @@ a.n:hover {
 }
 
 .card ul {
+
     margin: 10px 0;
     padding: 0; 
+    margin: 12px 0;
+    padding: 0 26px;
     list-style: none;
     color: #22364a;
     font-size: 1rem;
@@ -269,7 +272,7 @@ a.n:hover {
     color: #555;
 }
 
-.footer {
+.footer{
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     padding: 18px;
@@ -279,7 +282,7 @@ a.n:hover {
     border-top: 7px solid #f5893b;
 }
 
-
+/* Back To Top Character */
 a.totem{
     position: fixed;
     bottom: -35px;
@@ -292,36 +295,57 @@ a.totem{
     cursor: pointer;
     transition: 0.3s;
 }
+
 .totem_pole:hover{
     transform: scale(1.1);
 }
 
+/* Speech Bubble */
 .totem::after{
     content: "The world is so big,\A go and explore it.";
+
     width: 140px;
+
     white-space: pre-line;
+
     position: absolute;
+
     bottom: 90%;
-    left: 48%;
+
+    left: 50%;
 
     background: white;
+
     color: black;
 
     border: 3px solid #2d6a4f;
+
     border-top: 6px solid #f5893b;
 
     padding: 8px 12px;
+
     border-radius: 20px;
+
     font-size: 15px;
+
     font-weight: bold;
+
     text-align: center;
 
     opacity: 0;
+
     pointer-events: none;
 
-    transform: translate(-50%,10px);
+    transform: translate(-50%, 10px);
+
     transition: 0.3s;
 }
+
+.totem:hover::after{
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
 
 .totem:hover::after{
     opacity: 1;
@@ -402,3 +426,4 @@ a.totem{
 
 
 }
+
