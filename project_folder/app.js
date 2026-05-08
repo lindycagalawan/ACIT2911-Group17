@@ -119,38 +119,54 @@ app.get("/logout", (req, res) => {
 // --- ACTIVITIES ROUTES ---
 
 app.get("/activities", (req, res) => {
-  const allActivities = getActivities();
+    const allActivities = getActivities();
+    const selectedType = req.query.act_filter;
 
-  res.render("activities", {
-    activities: allActivities,
-    user: req.session.user || null,
-  });
+    let filteredActivities;
+    if (selectedType && selectedType !== "None") {
+        filteredActivities = allActivities.filter(act => act.type === selectedType);
+    } else {
+        filteredActivities = allActivities;
+    }
+
+    res.render("activities", {
+        pageTitle: "Activities",
+        activities: filteredActivities,
+        currentFilter: selectedType || "None", // This fixes your ReferenceError
+        user: req.session.user || null,
+    });
 });
 
 app.get("/activities/create", (req, res) => {
-  res.render("createActivity", {
-    user: req.session.user || null,
-  });
+    // Basic protection: if no user in session, redirect to login
+    if (!req.session.user) {
+        return res.redirect("/login");
+    }
+    
+    res.render("createActivity", {
+        pageTitle: "Share Activity",
+        user: req.session.user || null,
+    });
 });
 
 app.post("/activities/create", (req, res) => {
-  const { title, type, difficulty, rating, description, image } = req.body;
+    const { title, type, difficulty, rating, description, image } = req.body;
 
-  const newActivity = {
-    title,
-    type,
-    difficulty: parseInt(difficulty),
-    rating: parseInt(rating) || 5,
-    description,
-    image: image || "/images/chief.jpg",
-    creator: { uname: "GuestExplorer" },
-  };
+    const creatorName = req.session.user ? req.session.user.uname : "GuestExplorer";
 
-  addActivity(newActivity);
+    const newActivity = {
+        title,
+        type,
+        difficulty: parseInt(difficulty),
+        rating: parseInt(rating) || 5,
+        description,
+        image: image || "/images/chief.jpg",
+        creator: { uname: creatorName },
+    };
 
-  res.redirect("/activities");
+    addActivity(newActivity);
+    res.redirect("/activities");
 });
-
 
 if (require.main === module) {
     app.listen(PORT, () => {
