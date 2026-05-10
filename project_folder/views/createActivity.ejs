@@ -15,23 +15,35 @@
 <body id="destinations-page">
     <!-- Navbar -->
     <header class="navbar">
-        <h1 class="logo"><a href="/" class="n">ExploreBC</a></h1>
-        <nav class="nav-links">
-            <ul class="lp">
-                <li><a href="/" class="n">Home</a></li>
-                <li><a href="/destinations" class="n">Destinations</a></li>
-                <li><a href="/activities" class="n">Activities</a></li>
-                <li><a href="/food" class="n">Food & Restaurants</a></li>
-                <li><a href="/contact" class="n">Contact</a></li>
-                <li><a href="/login" class="n">Login</a></li>
-                <!-- Safeguard for user variable -->
-                <% if (typeof user !== 'undefined' && user) { %>
-                    <li><a href="/auth/logout" class="n">Logout</a></li>
-                <% } else { %>
-                    <li><a href="/auth/login" class="n">Login</a></li>
-                <% } %>
-            </ul>    
-        </nav>
+      <div class="logo-area">
+        <h1 class="logo">
+          <a href="/" class="n">ExploreBC</a>
+        </h1>
+
+        <% if (user) { %>
+          <p class="welcome-under-logo">Welcome Back, <%= user.uname %>!</p>
+        <% } %>
+      </div>
+
+      <nav class="nav-links">
+        <ul class="lp">
+          <li><a href="/" class="n">Home</a></li>
+          <li><a href="/destinations" class="n">Destinations</a></li>
+          <li><a href="/activities" class="n">Activities</a></li>
+          <li><a href="/food" class="n">Food & Restaurants</a></li>
+          <li><a href="/contact" class="n">Contact</a></li>
+
+          <% if (user) { %>
+            <li>
+              <a href="/logout" class="n">Logout</a>
+            </li>
+          <% } else { %>
+            <li>
+              <a href="/login" class="n">Login</a>
+            </li>
+          <% } %>
+        </ul>
+      </nav>
     </header>
 
     <main class="contact-page">
@@ -78,10 +90,10 @@
     </main>
 
     <footer class="footer">
-        <a href="#" class="totem">
-            <img src="/images/totem_pole.png" alt="totem pole" class="totem_pole">
-        </a>
-        <p>&copy; 2026 ExploreBC. All rights reserved.</p>
+      <a href="#" class="totem">
+        <img src="/images/totem_pole.png" alt="totem pole" class="totem_pole" />
+      </a>
+      <p>&copy; 2026 ExploreBC. All rights reserved.</p>
     </footer>
 </body>
 </html>
