@@ -1,6 +1,6 @@
 const { describe, it } = require("node:test");
 const assert = require("node:assert/strict");
-const { getActivities, addActivity } = require("../fake-db"); // Removed .js for CommonJS
+const { getActivities, addActivity } = require("../fake-db"); 
 
 describe("Activities Data Storage", () => {
   

@@ -132,7 +132,7 @@ app.get("/activities", (req, res) => {
     res.render("activities", {
         pageTitle: "Activities",
         activities: filteredActivities,
-        currentFilter: selectedType || "None", // This fixes your ReferenceError
+        currentFilter: selectedType || "None",
         user: req.session.user || null,
     });
 });

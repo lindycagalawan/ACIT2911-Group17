@@ -1,7 +1,7 @@
 const { describe, it } = require("node:test");
 const assert = require("node:assert/strict");
 const supertest = require("supertest");
-const app = require("../app"); // Path to your app.js
+const app = require("../app");
 
 describe("Activities Integration Tests", () => {
   
