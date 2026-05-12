@@ -1,78 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
-
-</head>
-
-<body>
+  <body>
     <!-- Navigation -->
     <header class="navbar">
-        <h1 class="logo">ExploreBC</h1>
-        <nav class="nav-links">
-           <ul class="lp">
-                 <li><a href="/" class="n">Home</a></li>
-                <li><a href="/destinations" class="n">Destinations</a></li>
-                <li><a href="/activities" class="n">Activities</a></li>
-                <li><a href="/food" class="n">Food & Restaurants</a></li>
-                <li><a href="/contact" class="n">Contact</a></li>
-            </ul>  
-        </nav>
+      <h1 class="logo">
+        <a href="/" class="n">ExploreBC</a>
+      </h1>
+
+      <nav class="nav-links">
+        <ul class="lp">
+          <li><a href="/" class="n">Home</a></li>
+          <li><a href="/destinations" class="n">Destinations</a></li>
+          <li><a href="/activities" class="n">Activities</a></li>
+          <li><a href="/food" class="n">Food & Restaurants</a></li>
+          <li><a href="/contact" class="n">Contact</a></li>
+
+          <% if (user) { %>
+            <li>
+              <a href="/logout" class="n">Logout</a>
+            </li>
+          <% } else { %>
+            <li>
+              <a href="/login" class="n">Login</a>
+            </li>
+          <% } %>
+        </ul>
+      </nav>
     </header>
-<!-- Main Content -->
-        <main class="contact-page">
-            <section class="contact-container">
-                <h1>Contact Us</h1>
-                
-                  
-                 <div class="contact-grid">
-                    <div class="contact-info">
-                        <h3>Get in Touch</h3>
-                        <p class="info-item">
-                            <span class="icon">📍</span>
-                            <span>Vancouver, BC</span>
-                        </p>
 
-                    <p class="info-item">
-                        <span class="icon">📧</span>
-                        <span>explorebc@email.com</span>
-                    </p>
+    <!-- Main Content -->
+    <main class="contact-page">
+      <section class="contact-container">
+        <h1>Contact Us</h1>
 
-                    <p class="info-item">
-                        <span class="icon">📞</span>
-                        <span>+1 604 000 0000</span>
-                    </p>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Get in Touch</h3>
 
-                    </div>
+            <p class="info-item">
+              <span class="icon">📍</span>
+              <span>Vancouver, BC</span>
+            </p>
 
-                    <!-- Contact Form -->
-                     <form class="contact-form">
-                     <label for="name">Name</label>
-                     <input type="text" id="name" placeholder="Enter your name">
+            <p class="info-item">
+              <span class="icon">📧</span>
+              <span>explorebc@email.com</span>
+            </p>
 
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Enter your email">
+            <p class="info-item">
+              <span class="icon">📞</span>
+              <span>+1 604 000 0000</span>
+            </p>
+          </div>
 
-                    <label for="message">Message</label>
-                    <textarea id="message" rows="5" placeholder="Write your message"></textarea>
-                
-                    <button type="submit">Send Message</button>
-                </form> 
-            </div>    
-        </section>
+          <!-- Contact Form -->
+          <form class="contact-form">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter your name" />
+
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email" />
+
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              rows="5"
+              placeholder="Write your message"
+            ></textarea>
+
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </section>
     </main>
-    <!-- Footer -->
-     <footer class="footer">
-          <p>&copy; 2026 ExploreBC | Discover British Columbia</p>
-     </footer>
-</body>
 
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2026 ExploreBC | Discover British Columbia</p>
+    </footer>
+  </body>
 </html>
