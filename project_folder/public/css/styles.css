@@ -763,18 +763,38 @@ a.totem {
     scroll-margin-top: 340px;
 }
 
+#destinations-page .content-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+}
+
 #destinations-page .gallery {
   display: flex;
   gap: 5px;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex: 1
+  min-width: 0px;
 }
 
 #destinations-page .gallery img {
-  width: 32%;
+  flex: 1;
+  min-width: 0;
   height: 250px;
   object-fit: cover;
   border-radius: 10px;
+  transition: flex 0.4s ease;
+  cursor: pointer;
+}
+
+#destinations-page .gallery img:hover {
+  flex: 2;
+}
+
+#destinations-page .content-row p {
+  flex: 0.8;
+  margin: 0;
+  padding-right: 30px;
+  padding-left: 30px;
 }
 
 #destinations-page section {
