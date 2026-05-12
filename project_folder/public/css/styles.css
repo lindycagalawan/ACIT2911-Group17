@@ -803,7 +803,7 @@ a.totem {
   border-top: 7px solid #f5893b;
 }
 
-@media screen and (width >= 768px) {
+@media screen and (width > 768px) {
   #destinations-page .destinations-navbar {
     flex-direction: row;
     justify-content: space-between;
