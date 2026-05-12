@@ -17,16 +17,16 @@ const posts = {
 };
 
 const activities = [
-{
-  id: 1,
-  title: "Hiking Stawamus Chief",
-  type: "Outdoor",
-  difficulty: 5,
-  rating: 4,
-  description: "A challenging hike with rewarding views of the Howe Sound.",
-  image: "/images/chief.jpg",
-  creator: { uname: "MeghanC" }
-}
+  {
+    id: 1,
+    title: "Hiking Stawamus Chief",
+    type: "Hiking",
+    difficulty: 5,
+    rating: 4,
+    description: "A challenging hike with rewarding views of the Howe Sound.",
+    image: "/images/chief.jpg",
+    creator: { uname: "MeghanC" }
+  },
 ];
 
 // --- USER FUNCTIONS ---
@@ -115,7 +115,6 @@ const incrementVisit = (id) => {
 };
 
 module.exports = {
-    activities,
     getActivities,
     addActivity,
     getActivityById,

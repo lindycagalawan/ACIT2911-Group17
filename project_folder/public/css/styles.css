@@ -1,5 +1,6 @@
+/* --- GLOBAL STYLES --- */
 * {
-  box-sizing: auto;
+  box-sizing: border-box;
 }
 
 html {
@@ -23,15 +24,17 @@ html {
 }
 
 /* Explore BC Project - Starter Styles */
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
+  background-color: #f5f5f5;
 }
-
 /* Add your styles here */
 .lp {
   font-size: clamp(0.8rem, 2vw, 1.3rem);
 }
+
 
 .navbar {
   display: flex;
@@ -41,7 +44,6 @@ body {
   background-color: white;
   border-bottom: #f5893b 7px solid;
 }
-
 .nav-links {
   background: transparent;
 }
@@ -63,18 +65,19 @@ a.n {
   text-decoration: none;
   color: #030304;
 }
+
 /*
 a.n:hover{
     color: #f5893b;
 }
 */
+
 .logo {
   font-family: "Dancing Script", cursive;
   font-weight: bold;
   color: #030304;
   font-size: clamp(1rem, 5vw, 3rem);
 }
-
 .hero {
   position: relative;
   display: flex;
@@ -327,21 +330,24 @@ a.totem {
 
 .totem::after {
   content: "The world is so big,\A go and explore it.";
-  /*changeanysentenceyouwant,(\A)meanslinebreak*/
-  width: 120px;
+  width: 140px;
   white-space: pre-line;
   position: absolute;
   bottom: 90%;
-  left: 50%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.872), rgba(0, 0, 0, 0));
-  color: white;
-  padding: 6px 10px;
-  border-radius: 50px;
+  left: 48%;
+  background: white;
+  color: black;
+  border: 3px solid #2d6a4f;
+  border-top: 6px solid #f5893b;
+  padding: 8px 12px;
+  border-radius: 20px;
   font-size: 15px;
+  font-weight: bold;
+  text-align: center;
   opacity: 0;
   pointer-events: none;
   transform: translate(-50%, 10px);
-  cursor: pointer;
+  transition: 0.3s;
 }
 
 .totem:hover::after {
@@ -971,9 +977,6 @@ a.totem {
   align-items: flex-start;
 }
 
-/* .logo-area .logo {
-  margin-bottom: 0;
-} */
 
 .welcome-under-logo {
   margin: 28px 0 12px 0;
