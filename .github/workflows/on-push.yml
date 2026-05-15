@@ -6,37 +6,36 @@ on:
       - main  # Run on every branch EXCEPT main
 
 jobs:
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
+      - uses: actions/checkout@v4
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-
+          node-version: "20"
+          
       - name: Install dependencies
         run: npm install
         working-directory: ./project_folder
-
-      - name: Run Built-in Node Tests
+        
+      - name: Test with Built-in Runner
         run: npm test
         working-directory: ./project_folder
+        env:
+          NODE_ENV: test
 
   create-pull-request:
-    needs: build-and-test
+    needs: build
     runs-on: ubuntu-latest
+    if: ${{ success() }}
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Create Pull Request
+        run: gh pr create -B main -H ${{ github.ref_name }} --title "Merge ${{ github.ref_name }} into main" --body "Automatic PR from Github Actions"
         env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh pr create \
-            --base main \
-            --title "Review Request: ${{ github.ref_name }}" \
-            --body "Automated PR for branch ${{ github.ref_name }}. All tests passed!" || echo "PR already exists"
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
