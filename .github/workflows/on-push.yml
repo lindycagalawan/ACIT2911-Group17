@@ -19,9 +19,11 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: ./project_folder
 
       - name: Run Built-in Node Tests
         run: npm test
+        working-directory: ./project_folder
 
   create-pull-request:
     needs: build-and-test
