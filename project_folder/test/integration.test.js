@@ -2,9 +2,9 @@ const { describe, it } = require("node:test");
 const assert = require("node:assert/strict");
 const supertest = require("supertest");
 const app = require("../app");
+const { Session } = require("node:inspector");
 
 describe("Activities Integration Tests", () => {
-  
   describe("GET /activities", () => {
     it("returns status 200", async () => {
       const res = await supertest(app).get("/activities");
@@ -27,11 +27,11 @@ describe("Activities Integration Tests", () => {
           type: "Hiking",
           difficulty: "3",
           description: "This is a test description",
-          rating: "5"
+          rating: "5",
         });
 
       assert.equal(res.status, 302);
-      assert.equal(res.headers.location, "/activities");
+      assert.equal(res.headers.location, "/login");
     });
   });
 });

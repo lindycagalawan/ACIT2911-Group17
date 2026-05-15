@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ExploreBC | Login</title>
+    <title>ExploreBC | Sign Up</title>
     <link rel="stylesheet" href="/css/styles.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,23 +31,23 @@
       </nav>
     </header>
 
-    <!-- Login Content -->
+    <!-- Sign Up Content -->
     <main class="login-page">
       <section class="login-container">
-        <h1>Login</h1>
-        <p>Log in to comment, rate places, and save your visited locations.</p>
+        <h1>Sign Up</h1>
+        <p>Sign up to comment, rate places, and save your visited locations.</p>
 
         <% if (error) { %>
           <p class="login-error"><%= error %></p>
         <% } %>
 
-        <form class="login-form" action="/login" method="POST">
+        <form class="login-form" action="/signup" method="POST">
           <label for="username">Username</label>
           <input
             type="text"
             id="username"
             name="username"
-            placeholder="Enter your username"
+            placeholder="Enter a username"
             required
           />
 
@@ -56,11 +56,11 @@
             type="password"
             id="password"
             name="password"
-            placeholder="Enter your password"
+            placeholder="Enter a password"
             required
           />
 
-          <button type="submit">Login</button>
+          <button type="submit">Sign Up</button>
         </form>
       </section>
     </main>

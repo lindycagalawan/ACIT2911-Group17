@@ -11,6 +11,7 @@ const {
   getUserByUsername,
   getDestinations,
   incrementVisit,
+  addUser,
 } = require("./fake-db");
 
 const app = express();
@@ -82,6 +83,15 @@ app.get("/login", (req, res) => {
   });
 });
 
+//Signup Page
+app.get("/signup", (req, res) => {
+  res.render("signup", {
+    pageTitle: "Sign Up",
+    user: req.session.user || null,
+    error: null,
+  });
+});
+
 // Login Form Submit
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
@@ -119,6 +129,25 @@ app.get("/logout", (req, res) => {
   });
 });
 
+// Signup Form Submit
+app.post("/signup", (req, res) => {
+  const { username, password } = req.body;
+  if (getUserByUsername(username)) {
+    return res.render("signup", {
+      pageTitle: "Sign Up",
+      user: null,
+      error: "Username already exists.",
+    });
+  }
+
+  const newUser = addUser(username, password);
+  req.session.user = {
+    id: newUser.id,
+    uname: newUser.uname,
+  };
+
+  res.redirect("/");
+});
 // --- ACTIVITIES ROUTES ---
 
 app.get("/activities", (req, res) => {
