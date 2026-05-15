@@ -1,0 +1,20 @@
+name: Production Deployment
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+
+jobs:
+  on-merge:
+    # Only run if the PR was actually merged into main
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Production
+        env:
+          deploy_url: ${{ secrets.RENDER_DEPLOY_URL }}
+        run: |
+          curl "$deploy_url"
