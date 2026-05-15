@@ -8,11 +8,13 @@ on:
       - closed
 
 jobs:
-  deploy:
+  on-merge:
     # Only run if the PR was actually merged into main
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger Render Deploy
+      - name: Deploy to Production
+        env:
+          deploy_url: ${{ secrets.RENDER_DEPLOY_URL }}
         run: |
-          curl -X GET "${{ secrets.RENDER_DEPLOY_HOOK }}"
+          curl "$deploy_url"
