@@ -86,7 +86,7 @@ a.n:hover{
 .hero .overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.45);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .hero video {
