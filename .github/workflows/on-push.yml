@@ -1,0 +1,42 @@
+name: Feature Branch CI
+
+on:
+  push:
+    branches-ignore:
+      - main  # Run on every branch EXCEPT main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./project_folder
+
+      - name: Run Built-in Node Tests
+        run: npm test
+        working-directory: ./project_folder
+
+  create-pull-request:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create Pull Request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr create \
+            --base main \
+            --title "Review Request: ${{ github.ref_name }}" \
+            --body "Automated PR for branch ${{ github.ref_name }}. All tests passed!" || echo "PR already exists"
