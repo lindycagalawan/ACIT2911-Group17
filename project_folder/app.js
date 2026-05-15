@@ -1,6 +1,11 @@
+require("dotenv").config();
+
 const express = require("express");
 const path = require("path");
 const session = require("express-session");
+const mongoose = require("mongoose");
+const bycrypt = require("bcrypt");
+
 
 const {
   getActivities,
@@ -13,8 +18,19 @@ const {
   incrementVisit,
 } = require("./fake-db");
 
+const { User } = require("./mongodb/userschema");
+const { Activity } = require("./mongodb/activitiesSchema");
+
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch((err) => {
+    console.error("MongoDB connection error:", err);
+  });
 
 // --- MIDDLEWARE ---
 
@@ -28,18 +44,22 @@ app.use(
   }),
 );
 
+app.use(express.json());
+
 app.use(express.static(path.join(__dirname, "public")));
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+
 // --- ROUTES ---
 
 // Home Page
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
+  const users = await User.findOne(uname: req.session.user);
   res.render("index", {
     pageTitle: "Home",
-    user: req.session.user || null,
+    user: users.uname || null,
   });
 });
 
